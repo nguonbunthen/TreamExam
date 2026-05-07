@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ធ្វើតេស្ត | TreamExam</title>
+    <meta name="theme-color" content="#9a623a" />
+    <link rel="icon" type="image/png" href="assets/images/logo1.png" />
+    <link rel="apple-touch-icon" href="assets/images/logo1.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/quiz.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main class="app-shell quiz-shell">
+      <header
+        class="topbar"
+        style="
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background: var(--paper);
+          border-bottom: 1px solid var(--line);
+        "
+      >
+        <span class="topbar-spacer"></span>
+        <div class="quiz-title">
+          <strong id="quizCategory">...</strong>
+          <span id="quizProgressText">សំណួរ --/--</span>
+        </div>
+        <span class="timer is-hidden" id="timer">--:--</span>
+      </header>
+
+      <div class="progress-track" aria-hidden="true">
+        <div
+          class="progress-bar"
+          id="progressBar"
+          role="progressbar"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+
+      <section class="question-card">
+        <p class="question-number" id="questionNumber">សំណួរទី --</p>
+        <h1 id="questionText">កំពុងរៀបចំសំណួរ...</h1>
+      </section>
+
+      <section class="answers" id="answerList" aria-label="ចម្លើយ"></section>
+
+      <section
+        class="answer-feedback"
+        id="answerFeedback"
+        aria-live="polite"
+      ></section>
+
+      <div class="quiz-actions">
+        <button class="secondary-action" id="prevBtn" type="button">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>ចាកចេញ</span>
+        </button>
+        <button class="primary-action button-action" id="nextBtn" type="button">
+          <span>បន្ទាប់</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div
+      id="confirmModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-family: &quot;Kantumruy Pro&quot;, sans-serif;
+      "
+    >
+      <div
+        style="
+          background: var(--paper);
+          padding: 2rem;
+          border-radius: 20px;
+          max-width: 360px;
+          width: 100%;
+          text-align: center;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+          border: 1px solid var(--line);
+        "
+      >
+        <div
+          style="
+            background: rgba(255, 59, 48, 0.1);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+          "
+        >
+          <i
+            class="fa-solid fa-right-from-bracket"
+            style="font-size: 1.5rem; color: #ff3b30"
+          ></i>
+        </div>
+        <h2
+          style="
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--ink);
+          "
+        >
+          តើអ្នកពិតជាចង់ចាកចេញ?
+        </h2>
+        <p
+          style="
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+          "
+        >
+          រាល់វឌ្ឍនភាពនៃការធ្វើតេស្តបច្ចុប្បន្ននឹងត្រូវបាត់បង់។
+        </p>
+        <div style="display: flex; gap: 12px; flex-direction: column">
+          <button
+            id="confirmExit"
+            class="primary-action"
+            style="
+              background: #ff3b30;
+              border: none;
+              color: white;
+              width: 100%;
+              height: 48px;
+              border-radius: 12px;
+              font-weight: 600;
+              cursor: pointer;
+              font-size: 1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            ចាកចេញ
+          </button>
+          <button
+            id="cancelExit"
+            class="secondary-action"
+            style="
+              width: 100%;
+              height: 48px;
+              border-radius: 12px;
+              font-weight: 600;
+              cursor: pointer;
+              border: 1px solid var(--line);
+              background: var(--surface);
+              color: var(--ink);
+              font-size: 1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            បន្តធ្វើតេស្ត
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/quiz.js"></script>
+  </body>
+</html>

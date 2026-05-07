@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TreamExam</title>
+    <meta name="theme-color" content="#9a623a" />
+    <link rel="icon" type="image/png" href="assets/images/logo1.png" />
+    <link rel="apple-touch-icon" href="assets/images/logo1.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header
+        class="topbar"
+        style="
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background: var(--paper);
+          border-bottom: 1px solid var(--line);
+        "
+      >
+        <a
+          href="login.html"
+          aria-label="គណនីអ្នកប្រើប្រាស់"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+          "
+        >
+          <div
+            style="
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              background: rgba(154, 98, 58, 0.1);
+              border: 1px solid rgba(154, 98, 58, 0.2);
+              color: var(--primary);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.2rem;
+            "
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div style="display: flex; flex-direction: column">
+            <span
+              style="font-size: 0.8rem; color: var(--muted); line-height: 1.2"
+              >សួស្តី!</span
+            >
+            <strong style="font-size: 1rem; color: var(--ink); line-height: 1.4"
+              >អ្នកប្រើប្រាស់</strong
+            >
+          </div>
+        </a>
+        <div style="display: flex; gap: 8px; align-items: center">
+          <button
+            class="icon-btn"
+            id="themeToggleBtn"
+            type="button"
+            aria-label="ប្តូរពណ៌ងងឹត"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button
+            class="icon-btn"
+            id="menuBtn"
+            type="button"
+            aria-label="បើកម៉ឺនុយ"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </header>
+
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Primary">
+        <a href="index.html">ទំព័រដើម</a>
+        <a href="#categories">វិញ្ញាសាប្រភេទក្រសួង</a>
+        <a href="result.html">លទ្ធផល</a>
+        <a href="login.html">ចូលប្រើប្រាស់</a>
+      </nav>
+
+      <section class="hero">
+        <img src="assets/images/logo1.png" alt="TreamExam illustration" />
+        <h1>ត្រៀមប្រឡង</h1>
+        <p>
+          ប្រព័ន្ធសាកល្បងចំណេះដឹង សម្រាប់ត្រៀមប្រឡងចូលក្រសួង និងស្ថាប័នរដ្ឋ។
+        </p>
+      </section>
+
+      <section class="section-head" id="categories">
+        <div>
+          <p>ជ្រើសរើសប្រភេទ</p>
+          <h2>វិញ្ញាសាប្រភេទក្រសួង</h2>
+        </div>
+      </section>
+
+      <section
+        class="category-list"
+        id="categoryList"
+        aria-label="Exam categories"
+      ></section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
