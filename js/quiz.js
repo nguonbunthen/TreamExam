@@ -52,6 +52,11 @@ const selectedLevel = levelId
 const filteredPool = category.questions.filter((q) => {
   if (!q.tags) return false; // មិនរាប់បញ្ចូលសំណួរដែលគ្មាន tags
 
+  // បើមានការជ្រើសរើសលេខវិញ្ញាសាជាក់លាក់ (ឧ. set-1) សំណួរនោះត្រូវតែមាន tag នេះ
+  if (setId && !q.tags.includes(setId)) {
+    return false;
+  }
+
   // ប្រសិនបើជាវិញ្ញាសាចម្រុះ (general/mixed) គឺយកសំណួរទាំងអស់ក្នុង category
   if (typeId === "general" || typeId === "mixed") {
     return true;
