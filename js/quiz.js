@@ -258,11 +258,6 @@ nextBtn.addEventListener("click", () => {
 // ==========================================================================
 // ៧. ការចាប់ផ្តើមដំណើរការ (Initialization)
 // ==========================================================================
-const currentTheme = localStorage.getItem("treamExamTheme");
-if (currentTheme === "dark") {
-  document.body.classList.add("dark-theme");
-}
-
 // ពិនិត្យថាមានប៊ូតុងចាកចេញឬអត់ មុនពេលកំណត់ Link ដើម្បីការពារកំហុស JS
 if (quitQuiz) {
   let exitUrl = `category.html?category=${category.id}`;

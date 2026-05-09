@@ -22,14 +22,6 @@
       name="google-site-verification"
       content="KXeyo7UtK2u-XPGbpyuVn5xtXZE6daXbd0bbGzFS1r0"
     />
-    <style>
-      body {
-        background-color: #f4f6f8; /* ពណ៌ប្រផេះស្រាល */
-      }
-      body.dark-theme {
-        background-color: #121212; /* រក្សាពណ៌ងងឹតសម្រាប់ Dark Theme */
-      }
-    </style>
   </head>
   <body>
     <main class="app-shell">
@@ -43,51 +35,7 @@
           border-bottom: 1px solid var(--line);
         "
       >
-        <a
-          href="login.html"
-          aria-label="គណនីអ្នកប្រើប្រាស់"
-          style="
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-          "
-        >
-          <div
-            style="
-              width: 44px;
-              height: 44px;
-              border-radius: 50%;
-              background: rgba(154, 98, 58, 0.1);
-              border: 1px solid rgba(154, 98, 58, 0.2);
-              color: var(--primary);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 1.2rem;
-            "
-          >
-            <i class="fa-solid fa-user"></i>
-          </div>
-          <div style="display: flex; flex-direction: column">
-            <span
-              style="font-size: 0.8rem; color: var(--muted); line-height: 1.2"
-              >សួស្តី!</span
-            >
-            <strong style="font-size: 1rem; color: var(--ink); line-height: 1.4"
-              >អ្នកប្រើប្រាស់</strong
-            >
-          </div>
-        </a>
         <div style="display: flex; gap: 8px; align-items: center">
-          <button
-            class="icon-btn"
-            id="themeToggleBtn"
-            type="button"
-            aria-label="ប្តូរពណ៌ងងឹត"
-          >
-            <i class="fa-solid fa-moon"></i>
-          </button>
           <button
             class="icon-btn"
             id="menuBtn"
@@ -97,13 +45,48 @@
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
+        <a
+          href="index.html"
+          aria-label="ទំព័រដើម"
+          style="display: flex; align-items: center"
+        >
+          <img
+            src="assets/images/logo.png"
+            alt="TreamExam Logo"
+            style="height: 36px; width: auto"
+          />
+        </a>
       </header>
 
       <nav class="mobile-menu" id="mobileMenu" aria-label="Primary">
-        <a href="index.html">ទំព័រដើម</a>
-        <a href="#categories">វិញ្ញាសាប្រភេទក្រសួង</a>
-        <a href="result.html">លទ្ធផល</a>
-        <a href="login.html">ចូលប្រើប្រាស់</a>
+        <a href="index.html"
+          ><i
+            class="fa-solid fa-house"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          ទំព័រដើម</a
+        >
+        <a href="#categories"
+          ><i
+            class="fa-solid fa-building-columns"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          វិញ្ញាសាប្រភេទក្រសួង</a
+        >
+        <a href="result.html"
+          ><i
+            class="fa-solid fa-chart-pie"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          លទ្ធផល</a
+        >
+        <a href="about.html"
+          ><i
+            class="fa-solid fa-circle-info"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          អំពីយើងខ្ញុំ</a
+        >
       </nav>
 
       <section class="hero">

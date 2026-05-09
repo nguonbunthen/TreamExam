@@ -31,18 +31,7 @@
           border-bottom: 1px solid var(--line);
         "
       >
-        <a class="icon-btn" href="index.html" aria-label="ទំព័រដើម">
-          <i class="fa-solid fa-house"></i>
-        </a>
         <div style="display: flex; gap: 8px; align-items: center">
-          <button
-            class="icon-btn"
-            id="themeToggleBtn"
-            type="button"
-            aria-label="ប្តូរពណ៌ងងឹត"
-          >
-            <i class="fa-solid fa-moon"></i>
-          </button>
           <button
             class="icon-btn"
             id="menuBtn"
@@ -52,13 +41,48 @@
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
+        <a
+          href="index.html"
+          aria-label="ទំព័រដើម"
+          style="display: flex; align-items: center"
+        >
+          <img
+            src="assets/images/logo.png"
+            alt="TreamExam Logo"
+            style="height: 36px; width: auto"
+          />
+        </a>
       </header>
 
       <nav class="mobile-menu" id="mobileMenu" aria-label="Primary">
-        <a href="index.html">ទំព័រដើម</a>
-        <a href="index.html#categories">វិញ្ញាសាប្រភេទក្រសួង</a>
-        <a href="result.html">លទ្ធផល</a>
-        <a href="login.html">ចូលប្រើប្រាស់</a>
+        <a href="index.html"
+          ><i
+            class="fa-solid fa-house"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          ទំព័រដើម</a
+        >
+        <a href="index.html#categories"
+          ><i
+            class="fa-solid fa-building-columns"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          វិញ្ញាសាប្រភេទក្រសួង</a
+        >
+        <a href="result.html"
+          ><i
+            class="fa-solid fa-chart-pie"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          លទ្ធផល</a
+        >
+        <a href="about.html"
+          ><i
+            class="fa-solid fa-circle-info"
+            style="margin-right: 10px; width: 20px; text-align: center"
+          ></i>
+          អំពីយើងខ្ញុំ</a
+        >
       </nav>
 
       <section class="category-list" id="categoryDetail"></section>

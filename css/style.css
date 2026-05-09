@@ -39,8 +39,8 @@ body.dark-theme {
 body {
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(154, 98, 58, 0.08), rgba(3, 155, 184, 0.06)),
-    #ececec;
+    linear-gradient(180deg, rgba(154, 98, 58, 0.05), rgba(3, 155, 184, 0.03)),
+    #f4f6f8;
   color: var(--ink);
   display: flex;
   justify-content: center;
@@ -197,6 +197,22 @@ input {
   border: 1px solid var(--line);
   color: var(--primary);
   padding: 0 14px;
+}
+
+/* --- Animation ពេលបង្ហាញកាត --- */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-enter {
+  opacity: 0; /* លាក់ជាបណ្តោះអាសន្នមុនពេល Animation ដើរ */
+  animation: fadeSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 @media (min-width: 768px) {

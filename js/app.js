@@ -15,30 +15,35 @@ const examTypes = [
     title: "វិញ្ញាសាពហុចម្លើយ វប្បធម៌ទូទៅ",
     description: "សំណួរទាក់ទងនឹងចំណេះដឹងទូទៅ រដ្ឋបាល និងសង្គម។",
     icon: "fa-solid fa-earth-asia",
+    color: "#d88718", // ពណ៌ទឹកក្រូច
   },
   {
     id: "language",
     title: "វិញ្ញាសាពហុចម្លើយ ភាសាបរទេស",
     description: "វិញ្ញាសាភាសាអង់គ្លេស និងភាសាបារាំង។",
     icon: "fa-solid fa-language",
+    color: "#9b59b6", // ពណ៌ស្វាយ
   },
   {
     id: "primary",
     title: "វិញ្ញាសាពហុចម្លើយ គ្រូមត្តេយ្យ និងបឋម",
     description: "វិញ្ញាសាសម្រាប់ត្រៀមប្រឡងគ្រូបង្រៀនកម្រិតបឋម។",
     icon: "fa-solid fa-children",
+    color: "#25845a", // ពណ៌បៃតង
   },
   {
     id: "secondary",
     title: "វិញ្ញាសាពហុចម្លើយ គ្រូអនុវិទ្យាល័យ",
     description: "វិញ្ញាសាសម្រាប់ត្រៀមប្រឡងគ្រូបង្រៀនកម្រិតមធ្យមសិក្សា។",
     icon: "fa-solid fa-school",
+    color: "#039bb8", // ពណ៌ខៀវខ្ចី
   },
   {
     id: "highschool",
     title: "វិញ្ញាសាពហុចម្លើយ គ្រូវិទ្យាល័យ",
     description: "វិញ្ញាសាសម្រាប់ត្រៀមប្រឡងគ្រូបង្រៀនកម្រិតឧត្តមសិក្សា។",
     icon: "fa-solid fa-graduation-cap",
+    color: "#cf4242", // ពណ៌ក្រហម
   },
 ];
 
@@ -318,28 +323,6 @@ function getExamType(id) {
 // ==========================================================================
 // ៤. អនុគមន៍គ្រប់គ្រងការបង្ហាញទំព័រ (Render Functions)
 // ==========================================================================
-function setupTheme() {
-  const themeToggleBtn = document.getElementById("themeToggleBtn");
-  const currentTheme = localStorage.getItem("treamExamTheme") || "light";
-
-  if (currentTheme === "dark") {
-    document.body.classList.add("dark-theme");
-    if (themeToggleBtn)
-      themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-  }
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-theme");
-      const isDark = document.body.classList.contains("dark-theme");
-      localStorage.setItem("treamExamTheme", isDark ? "dark" : "light");
-      themeToggleBtn.innerHTML = isDark
-        ? '<i class="fa-solid fa-sun"></i>'
-        : '<i class="fa-solid fa-moon"></i>';
-    });
-  }
-}
-
 function setupMenu() {
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -361,7 +344,7 @@ function renderHome() {
         <a class="category-card" style="--accent: ${category.color}; ${category.id !== "education" ? "opacity: 0.6;" : ""}" href="category.html?category=${category.id}">
           <img src="${category.image}" alt="${category.title}" />
           <div>
-            <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: ${category.color};">
               ${category.title}
               ${category.id !== "education" ? '<span style="font-size: 0.65rem; background: #fff3e0; color: #e67e22; padding: 2px 8px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(230,126,34,0.3);">កំពុងអភិវឌ្ឍ</span>' : ""}
             </h3>
@@ -386,24 +369,51 @@ function renderCategory() {
     return;
   }
 
+  // កំណត់ទិន្នន័យដែលត្រូវបង្ហាញ (កាតធំ ឬ កាតតូច)
+  const isSubTopic = typeId && subTopicData[typeId] && !topicId;
+  const isExamSet = !!topicId; // កំពុងស្ថិតក្នុងទំព័រវិញ្ញាសាទី១-២០
+
+  // កំណត់ព័ត៌មានសម្រាប់កាតផ្នែកខាងលើ
+  let headerTitle = category.title;
+  let headerDesc = category.description;
+  let headerColor = category.color;
+  let headerIconHtml = `<img src="${category.image}" alt="${category.title}" style="width: 60px; height: 60px; object-fit: contain;" />`;
+
+  if (isExamSet) {
+    const currentTopic = getExamType(topicId);
+    headerTitle = currentTopic.title;
+    headerDesc = currentTopic.description;
+    headerColor =
+      currentTopic.color ||
+      (typeId ? getExamType(typeId).color : null) ||
+      category.color;
+    headerIconHtml = `<div style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;"><i class="${currentTopic.icon}" style="font-size: 36px; color: ${headerColor};"></i></div>`;
+  } else if (typeId) {
+    const currentType = getExamType(typeId);
+    headerTitle = currentType.title;
+    headerDesc = currentType.description;
+    headerColor = currentType.color || category.color;
+    headerIconHtml = `<div style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;"><i class="${currentType.icon}" style="font-size: 36px; color: ${headerColor};"></i></div>`;
+  }
+
   detail.innerHTML = `
-    <div class="category-card" style="--accent: ${category.color}; background-color: ${category.color}0D; border: 1px solid ${category.color}33; cursor: default;">
-      <img src="${category.image}" alt="${category.title}" />
+    <div class="animate-enter" style="grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; background-color: ${headerColor}26; border: 1px solid ${headerColor}80; border-radius: var(--radius); padding: 18px; margin-bottom: 8px; box-shadow: 0 6px 20px ${headerColor}26; animation-delay: 0s;">
+      <div style="background: var(--paper); padding: 12px; border-radius: 12px; box-shadow: 0 4px 10px ${headerColor}40; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid ${headerColor}33;">
+        ${headerIconHtml}
+      </div>
       <div>
-        <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
-          ${category.title}
-        </h3>
-        <p>${category.description}</p>
+        <h2 style="font-size: 1.25rem; color: ${headerColor}; margin: 0 0 6px 0; line-height: 1.4;">
+          ${headerTitle}
+        </h2>
+        <p style="color: var(--muted); font-size: 0.95rem; margin: 0; line-height: 1.5;">
+          ${headerDesc}
+        </p>
       </div>
     </div>
   `;
 
   const examTypeList = document.getElementById("examTypeList");
   if (!examTypeList) return;
-
-  // កំណត់ទិន្នន័យដែលត្រូវបង្ហាញ (កាតធំ ឬ កាតតូច)
-  const isSubTopic = typeId && subTopicData[typeId] && !topicId;
-  const isExamSet = !!topicId; // កំពុងស្ថិតក្នុងទំព័រវិញ្ញាសាទី១-២០
 
   let displayData = [];
   if (isExamSet) {
@@ -441,25 +451,25 @@ function renderCategory() {
         : `category.html?category=${category.id}`;
 
     backBtnHtml = `
-      <a class="exam-type-card" href="${goBackHref}" style="border-color: ${category.color}; background: ${category.color}0D;">
-        <span class="exam-type-icon" style="background: ${category.color}; color: white;">
+      <a class="exam-type-card animate-enter" href="${goBackHref}" style="border-color: ${category.color}60; background-color: var(--surface); box-shadow: 0 4px 15px ${category.color}15; animation-delay: 0.1s;">
+        <span class="exam-type-icon" style="background: ${category.color}; color: white; box-shadow: 0 4px 10px ${category.color}40;">
           <i class="fa-solid fa-arrow-left"></i>
         </span>
         <div>
-          <h3>ត្រឡប់ក្រោយ</h3>
-          <p>ត្រឡប់ទៅកាន់ ${typeId && typeId !== topicId ? getExamType(typeId).title : "ប្រភេទវិញ្ញាសា"}</p>
+          <h3 style="color: ${category.color}; margin-bottom: 6px;">ត្រឡប់ក្រោយ</h3>
+          <p style="margin: 0;">ត្រឡប់ទៅកាន់ ${typeId && typeId !== topicId ? getExamType(typeId).title : "ប្រភេទវិញ្ញាសា"}</p>
         </div>
       </a>
     `;
   } else if (isSubTopic) {
     backBtnHtml = `
-      <a class="exam-type-card" href="category.html?category=${category.id}" style="border-color: ${category.color}; background: ${category.color}0D;">
-        <span class="exam-type-icon" style="background: ${category.color}; color: white;">
+      <a class="exam-type-card animate-enter" href="category.html?category=${category.id}" style="border-color: ${category.color}60; background-color: var(--surface); box-shadow: 0 4px 15px ${category.color}15; animation-delay: 0.1s;">
+        <span class="exam-type-icon" style="background: ${category.color}; color: white; box-shadow: 0 4px 10px ${category.color}40;">
           <i class="fa-solid fa-arrow-left"></i>
         </span>
         <div>
-          <h3>ត្រឡប់ក្រោយ</h3>
-          <p>ត្រឡប់ទៅកាន់ប្រភេទវិញ្ញាសា</p>
+          <h3 style="color: ${category.color}; margin-bottom: 6px;">ត្រឡប់ក្រោយ</h3>
+          <p style="margin: 0;">ត្រឡប់ទៅកាន់ប្រភេទវិញ្ញាសា</p>
         </div>
       </a>
     `;
@@ -468,7 +478,7 @@ function renderCategory() {
   examTypeList.innerHTML =
     backBtnHtml +
     displayData
-      .map((type) => {
+      .map((type, index) => {
         // កំណត់ URL ទៅតាមកម្រិតនៃវិញ្ញាសា (បើជា 'mixed' ចូលឆ្លើយសំណួរតែម្តង)
         const nextHref = isExamSet
           ? `quiz.html?category=${category.id}&type=${topicId}&level=${typeId}&set=${type.id}`
@@ -478,16 +488,19 @@ function renderCategory() {
               ? `quiz.html?category=${category.id}&type=${type.id}&level=${typeId || ""}`
               : `category.html?category=${category.id}&type=${typeId || type.id}&topic=${type.id}`;
 
+        const typeColor = type.color || headerColor || "var(--primary)";
+        const delay = 0.1 + (backBtnHtml ? index + 1 : index) * 0.05; // តម្រៀបពេលចេញមកម្តងមួយៗ
+
         return `
-        <a class="exam-type-card" href="${nextHref}">
-          <span class="exam-type-icon">
+        <a class="exam-type-card animate-enter" href="${nextHref}" style="border-color: ${typeColor}80; background-color: var(--surface); box-shadow: 0 4px 15px ${typeColor}20; animation-delay: ${delay}s;">
+          <span class="exam-type-icon" style="background-color: ${typeColor}33; color: ${typeColor}; box-shadow: inset 0 0 0 1px ${typeColor}40;">
             <i class="${type.icon}"></i>
           </span>
           <div>
-            <h3>${type.title}</h3>
-            <p>${type.description}</p>
+            <h3 style="color: ${typeColor}; margin-bottom: 6px;">${type.title}</h3>
+            <p style="margin: 0;">${type.description}</p>
           </div>
-          <i class="fa-solid fa-chevron-right"></i>
+          <i class="fa-solid fa-chevron-right" style="color: ${typeColor}; opacity: 0.9;"></i>
         </a>
       `;
       })
@@ -647,7 +660,6 @@ function renderResult() {
 // ==========================================================================
 // ៥. ការចាប់ផ្តើមដំណើរការកម្មវិធី (Initialization)
 // ==========================================================================
-setupTheme();
 setupMenu();
 renderHome();
 renderCategory();
