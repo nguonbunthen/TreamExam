@@ -6,6 +6,7 @@ const categoryId = params.get("category") || "education";
 const typeId = params.get("type") || "general";
 const levelId = params.get("level"); // ទាញយកកម្រិតសិក្សា (ឧ. primary, secondary, highschool)
 const category = examData.find((item) => item.id === categoryId) || examData[0];
+const setId = params.get("set"); // ទាញយកលេខវិញ្ញាសា (ឧ. set-1, set-2)
 
 const examTypes = [
   { id: "culture", title: "វប្បធម៌ទូទៅ" },
@@ -132,13 +133,14 @@ function renderQuestion() {
   const hasAnswered = selectedAnswer !== null;
   const progress = ((currentIndex + 1) / questions.length) * 100;
 
-  // បង្ហាញចំណងជើងឱ្យកាន់តែច្បាស់លាស់ (ឧ. អប់រំ - គ្រូអនុវិទ្យាល័យ - គណិតវិទ្យា)
-  const titleParts = [
-    category.shortTitle,
-    selectedLevel?.title,
-    selectedType.title,
-  ].filter(Boolean);
-  quizCategory.textContent = titleParts.join(" - ");
+  // កំណត់ឈ្មោះវិញ្ញាសា (ឧទាហរណ៍៖ វិញ្ញាសាទី ១)
+  let setTitle = "";
+  if (setId && setId.startsWith("set-")) {
+    setTitle = `វិញ្ញាសាទី ${setId.replace("set-", "")}`;
+  }
+
+  // បង្ហាញតែឈ្មោះវិញ្ញាសា (ឧទាហរណ៍៖ វិញ្ញាសាទី ១) ឬឈ្មោះផ្នែកបើគ្មានលេខវិញ្ញាសា
+  quizCategory.textContent = setTitle || selectedType.title;
 
   quizProgressText.textContent = `សំណួរ ${currentIndex + 1}/${questions.length}`;
   progressBar.style.width = `${progress}%`;
@@ -196,6 +198,9 @@ function saveResult() {
     JSON.stringify({
       categoryId: category.id,
       typeId: selectedType.id,
+      rawTypeId: typeId,
+      rawLevelId: levelId,
+      rawSetId: setId,
       correct,
       total: questions.length,
       questions, // បន្ថែមសំណួរដែលបានប្រើក្នុងតេស្តនេះ
@@ -227,7 +232,15 @@ cancelExit.addEventListener("click", () => {
 });
 
 confirmExit.addEventListener("click", () => {
-  window.location.href = `category.html?category=${category.id}`;
+  let exitUrl = `category.html?category=${category.id}`;
+  if (setId && levelId && typeId) {
+    exitUrl += `&type=${levelId}&topic=${typeId}`;
+  } else if (levelId) {
+    exitUrl += `&type=${levelId}`;
+  } else if (typeId && typeId !== "general" && typeId !== "mixed") {
+    exitUrl += `&type=${typeId}`;
+  }
+  window.location.href = exitUrl;
 });
 
 nextBtn.addEventListener("click", () => {
@@ -252,7 +265,15 @@ if (currentTheme === "dark") {
 
 // ពិនិត្យថាមានប៊ូតុងចាកចេញឬអត់ មុនពេលកំណត់ Link ដើម្បីការពារកំហុស JS
 if (quitQuiz) {
-  quitQuiz.href = `category.html?category=${category.id}`;
+  let exitUrl = `category.html?category=${category.id}`;
+  if (setId && levelId && typeId) {
+    exitUrl += `&type=${levelId}&topic=${typeId}`;
+  } else if (levelId) {
+    exitUrl += `&type=${levelId}`;
+  } else if (typeId && typeId !== "general" && typeId !== "mixed") {
+    exitUrl += `&type=${typeId}`;
+  }
+  quitQuiz.href = exitUrl;
 }
 
 // កំណត់ពណ៌ប៊ូតុង បន្ទាប់ (ពណ៌បៃតង) និង ចាកចេញ (ពណ៌ក្រហម)

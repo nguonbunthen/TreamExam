@@ -19,6 +19,43 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <style>
+      /* Animation សម្រាប់ចម្លើយ (Answer Options) */
+      .answer-option {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      .answer-option:active:not(:disabled) {
+        transform: scale(0.97); /* រួមតូចបន្តិចពេលសង្កត់ចុច */
+      }
+      .answer-option.is-correct {
+        animation: popCorrect 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+      .answer-option.is-wrong {
+        animation: shakeWrong 0.4s ease-in-out forwards;
+      }
+      
+      @keyframes popCorrect {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+      }
+      @keyframes shakeWrong {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-5px); }
+        40%, 80% { transform: translateX(5px); }
+      }
+
+      /* Animation សម្រាប់ប្រអប់បង្ហាញចម្លើយត្រូវ/ខុស (Feedback) */
+      .answer-feedback {
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      }
+      .answer-feedback.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
   </head>
   <body>
     <main class="app-shell quiz-shell">

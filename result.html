@@ -34,11 +34,32 @@
         <a class="icon-btn" href="index.html" aria-label="ទំព័រដើម">
           <i class="fa-solid fa-house"></i>
         </a>
-        <a class="brand compact" href="index.html">
-          <img src="assets/images/logo.png" alt="TreamExam" />
-        </a>
-        <span class="topbar-spacer"></span>
+        <div style="display: flex; gap: 8px; align-items: center">
+          <button
+            class="icon-btn"
+            id="themeToggleBtn"
+            type="button"
+            aria-label="ប្តូរពណ៌ងងឹត"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button
+            class="icon-btn"
+            id="menuBtn"
+            type="button"
+            aria-label="បើកម៉ឺនុយ"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
       </header>
+
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Primary">
+        <a href="index.html">ទំព័រដើម</a>
+        <a href="index.html#categories">វិញ្ញាសាប្រភេទក្រសួង</a>
+        <a href="result.html">លទ្ធផល</a>
+        <a href="login.html">ចូលប្រើប្រាស់</a>
+      </nav>
 
       <section class="result-card">
         <div class="score-ring" id="scoreRing">
@@ -65,13 +86,26 @@
       </section>
 
       <div class="result-actions">
+        <a
+          class="primary-action"
+          id="nextSetBtn"
+          href="#"
+          style="display: none"
+        >
+          <span>បន្តទៅវិញ្ញាសាបន្ទាប់</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
         <a class="primary-action" id="retryBtn" href="index.html">
           <span>ធ្វើតេស្តម្តងទៀត</span>
           <i class="fa-solid fa-rotate-right"></i>
         </a>
-        <a class="secondary-action link-action" href="index.html">
+        <a
+          class="secondary-action link-action"
+          id="chooseOtherBtn"
+          href="index.html"
+        >
           <i class="fa-solid fa-layer-group"></i>
-          <span>ជ្រើសរើសប្រភេទផ្សេង</span>
+          <span>ជ្រើសរើសវិញ្ញាសាផ្សេង</span>
         </a>
       </div>
     </main>

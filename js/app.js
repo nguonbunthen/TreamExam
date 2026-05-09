@@ -4,6 +4,7 @@
 const params = new URLSearchParams(window.location.search);
 const categoryId = params.get("category") || "education";
 const typeId = params.get("type"); // បន្ថែមសម្រាប់ឆែកមើលប្រភេទផ្នែក
+const topicId = params.get("topic"); // បន្ថែមសម្រាប់ឆែកមើលផ្នែកលម្អិត (វិញ្ញាសាទី១-២០)
 
 // ==========================================================================
 // ២. ទិន្នន័យរចនាសម្ព័ន្ធវិញ្ញាសា (Exam Types & Sub Topics)
@@ -11,31 +12,31 @@ const typeId = params.get("type"); // បន្ថែមសម្រាប់ឆ
 const examTypes = [
   {
     id: "culture",
-    title: "វប្បធម៌ទូទៅ",
+    title: "វិញ្ញាសាពហុចម្លើយ វប្បធម៌ទូទៅ",
     description: "សំណួរទាក់ទងនឹងចំណេះដឹងទូទៅ រដ្ឋបាល និងសង្គម។",
     icon: "fa-solid fa-earth-asia",
   },
   {
     id: "language",
-    title: "ភាសាបរទេស",
+    title: "វិញ្ញាសាពហុចម្លើយ ភាសាបរទេស",
     description: "វិញ្ញាសាភាសាអង់គ្លេស និងភាសាបារាំង។",
     icon: "fa-solid fa-language",
   },
   {
     id: "primary",
-    title: "គ្រូមត្តេយ្យ និងបឋម",
+    title: "វិញ្ញាសាពហុចម្លើយ គ្រូមត្តេយ្យ និងបឋម",
     description: "វិញ្ញាសាសម្រាប់ត្រៀមប្រឡងគ្រូបង្រៀនកម្រិតបឋម។",
     icon: "fa-solid fa-children",
   },
   {
     id: "secondary",
-    title: "គ្រូអនុវិទ្យាល័យ",
+    title: "វិញ្ញាសាពហុចម្លើយ គ្រូអនុវិទ្យាល័យ",
     description: "វិញ្ញាសាសម្រាប់ត្រៀមប្រឡងគ្រូបង្រៀនកម្រិតមធ្យមសិក្សា។",
     icon: "fa-solid fa-school",
   },
   {
     id: "highschool",
-    title: "គ្រូវិទ្យាល័យ",
+    title: "វិញ្ញាសាពហុចម្លើយ គ្រូវិទ្យាល័យ",
     description: "វិញ្ញាសាសម្រាប់ត្រៀមប្រឡងគ្រូបង្រៀនកម្រិតឧត្តមសិក្សា។",
     icon: "fa-solid fa-graduation-cap",
   },
@@ -44,6 +45,12 @@ const examTypes = [
 // បន្ថែមប្រធានបទលម្អិតសម្រាប់ វប្បធម៌ទូទៅ
 const subTopicData = {
   culture: [
+    {
+      id: "mixed",
+      title: "វិញ្ញាសាចម្រុះ",
+      icon: "fa-solid fa-layer-group",
+      description: "វិញ្ញាសាចម្រុះគ្រប់វិញ្ញាសាទាំងអស់ខាងក្រោម",
+    },
     {
       id: "public-service",
       title: "មុខងារសាធារណៈ",
@@ -97,12 +104,6 @@ const subTopicData = {
       title: "សេដ្ឋកិច្ចកម្ពុជា",
       icon: "fa-solid fa-chart-line",
       description: "ស្ថានភាពសេដ្ឋកិច្ច និងហិរញ្ញវត្ថុ",
-    },
-    {
-      id: "mixed",
-      title: "ចម្រុះ",
-      icon: "fa-solid fa-layer-group",
-      description: "វិញ្ញាសាចម្រុះគ្រប់វិញ្ញាសាខាងលើ",
     },
   ],
   language: [
@@ -386,10 +387,14 @@ function renderCategory() {
   }
 
   detail.innerHTML = `
-    <img src="${category.image}" alt="${category.title}" />
-    <div>
-      <h1>${category.title}</h1>
-      <p>${category.description}</p>
+    <div class="category-card" style="--accent: ${category.color}; background-color: ${category.color}0D; border: 1px solid ${category.color}33; cursor: default;">
+      <img src="${category.image}" alt="${category.title}" />
+      <div>
+        <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+          ${category.title}
+        </h3>
+        <p>${category.description}</p>
+      </div>
     </div>
   `;
 
@@ -397,19 +402,59 @@ function renderCategory() {
   if (!examTypeList) return;
 
   // កំណត់ទិន្នន័យដែលត្រូវបង្ហាញ (កាតធំ ឬ កាតតូច)
-  const isSubTopic = typeId && subTopicData[typeId];
-  const displayData = isSubTopic ? subTopicData[typeId] : examTypes;
+  const isSubTopic = typeId && subTopicData[typeId] && !topicId;
+  const isExamSet = !!topicId; // កំពុងស្ថិតក្នុងទំព័រវិញ្ញាសាទី១-២០
+
+  let displayData = [];
+  if (isExamSet) {
+    // បង្កើតកាតចំនួន ២០ សម្រាប់អនុវត្ត
+    for (let i = 1; i <= 20; i++) {
+      displayData.push({
+        id: `set-${i}`,
+        title: `វិញ្ញាសាទី ${i}`,
+        description: `អនុវត្តវិញ្ញាសាទី ${i} សម្រាប់${getExamType(topicId).title}`,
+        icon: "fa-solid fa-file-lines",
+      });
+    }
+  } else if (isSubTopic) {
+    displayData = subTopicData[typeId];
+  } else {
+    displayData = examTypes;
+  }
+
   const sectionTitle = document.querySelector(".section-head h2");
 
-  if (isSubTopic && sectionTitle) {
-    sectionTitle.textContent = `វិញ្ញាសា ${getExamType(typeId).title}`;
+  if (sectionTitle) {
+    if (isExamSet) {
+      sectionTitle.textContent = getExamType(topicId).title;
+    } else if (isSubTopic) {
+      sectionTitle.textContent = getExamType(typeId).title;
+    }
   }
 
   let backBtnHtml = "";
-  if (isSubTopic) {
+  if (isExamSet) {
+    // ប៊ូតុងត្រឡប់ក្រោយសម្រាប់ពេលស្ថិតក្នុងវិញ្ញាសាទី១-២០
+    const goBackHref =
+      typeId && typeId !== topicId
+        ? `category.html?category=${category.id}&type=${typeId}`
+        : `category.html?category=${category.id}`;
+
     backBtnHtml = `
-      <a class="exam-type-card" href="category.html?category=${category.id}" style="border-color: var(--blue); background: rgba(52, 103, 214, 0.05);">
-        <span class="exam-type-icon" style="background: var(--blue); color: white;">
+      <a class="exam-type-card" href="${goBackHref}" style="border-color: ${category.color}; background: ${category.color}0D;">
+        <span class="exam-type-icon" style="background: ${category.color}; color: white;">
+          <i class="fa-solid fa-arrow-left"></i>
+        </span>
+        <div>
+          <h3>ត្រឡប់ក្រោយ</h3>
+          <p>ត្រឡប់ទៅកាន់ ${typeId && typeId !== topicId ? getExamType(typeId).title : "ប្រភេទវិញ្ញាសា"}</p>
+        </div>
+      </a>
+    `;
+  } else if (isSubTopic) {
+    backBtnHtml = `
+      <a class="exam-type-card" href="category.html?category=${category.id}" style="border-color: ${category.color}; background: ${category.color}0D;">
+        <span class="exam-type-icon" style="background: ${category.color}; color: white;">
           <i class="fa-solid fa-arrow-left"></i>
         </span>
         <div>
@@ -424,13 +469,14 @@ function renderCategory() {
     backBtnHtml +
     displayData
       .map((type) => {
-        // បើចុចលើកាតដែលមានកូនបន្ត (ដូចជាវប្បធម៌ទូទៅ) ឱ្យនៅទំព័រ category ដដែល តែប្តូរ URL
-        // បើគ្មានកូនបន្តទេ ឱ្យទៅទំព័រ quiz.html
-        const nextHref = subTopicData[type.id]
-          ? `category.html?category=${category.id}&type=${type.id}`
-          : isSubTopic
-            ? `quiz.html?category=${category.id}&type=${type.id}&level=${typeId}`
-            : `quiz.html?category=${category.id}&type=${type.id}`;
+        // កំណត់ URL ទៅតាមកម្រិតនៃវិញ្ញាសា (បើជា 'mixed' ចូលឆ្លើយសំណួរតែម្តង)
+        const nextHref = isExamSet
+          ? `quiz.html?category=${category.id}&type=${topicId}&level=${typeId}&set=${type.id}`
+          : subTopicData[type.id]
+            ? `category.html?category=${category.id}&type=${type.id}`
+            : type.id === "mixed"
+              ? `quiz.html?category=${category.id}&type=${type.id}&level=${typeId || ""}`
+              : `category.html?category=${category.id}&type=${typeId || type.id}&topic=${type.id}`;
 
         return `
         <a class="exam-type-card" href="${nextHref}">
@@ -491,8 +537,58 @@ function renderResult() {
       "លទ្ធផលនេះជាការហាត់សាកល្បង។ សូមរំលឹកមេរៀន រួចសាកល្បងម្តងទៀត។";
   }
 
-  if (retryBtn && category)
-    retryBtn.href = `quiz.html?category=${category.id}&type=${type?.id || "general"}`;
+  const nextSetBtn = document.getElementById("nextSetBtn");
+
+  if (result.rawSetId) {
+    // ប្រសិនបើកំពុងធ្វើវិញ្ញាសាទី១-២០
+    const currentSetNum = parseInt(result.rawSetId.replace("set-", ""));
+
+    // បង្ហាញប៊ូតុង "បន្តទៅវិញ្ញាសាបន្ទាប់" ប្រសិនបើមិនទាន់ដល់វិញ្ញាសាទី ២០
+    if (nextSetBtn && currentSetNum < 20) {
+      nextSetBtn.style.display = "flex";
+      nextSetBtn.href = `quiz.html?category=${result.categoryId}&type=${result.rawTypeId || ""}&level=${result.rawLevelId || ""}&set=set-${currentSetNum + 1}`;
+
+      // ប្តូរប៊ូតុងធ្វើតេស្តម្តងទៀតទៅជាប៊ូតុងរង (Secondary)
+      if (retryBtn) retryBtn.className = "secondary-action";
+    }
+  }
+
+  if (retryBtn && category) {
+    // កំណត់តំណភ្ជាប់ប៊ូតុង "ធ្វើតេស្តម្តងទៀត" ឱ្យចំវិញ្ញាសាដែលទើបនឹងធ្វើ
+    let retryUrl = `quiz.html?category=${category.id}`;
+    if (result.rawTypeId) retryUrl += `&type=${result.rawTypeId}`;
+    if (result.rawLevelId) retryUrl += `&level=${result.rawLevelId}`;
+    if (result.rawSetId) retryUrl += `&set=${result.rawSetId}`;
+    else if (type) retryUrl += `&type=${type.id}`;
+
+    retryBtn.href = retryUrl;
+
+    // ប្តូរឈ្មោះប៊ូតុងប្រសិនបើវាជាវិញ្ញាសាចម្រុះ
+    if (result.rawTypeId === "mixed" || (type && type.id === "mixed")) {
+      const btnSpan = retryBtn.querySelector("span");
+      const btnIcon = retryBtn.querySelector("i");
+      if (btnSpan) btnSpan.textContent = "បង្កើតវិញ្ញាសាចម្រុះថ្មី";
+      if (btnIcon) btnIcon.className = "fa-solid fa-shuffle";
+    }
+  }
+
+  // កំណត់តំណភ្ជាប់ប៊ូតុង "ជ្រើសរើសប្រភេទផ្សេង" ឱ្យត្រឡប់ទៅបញ្ជីវិញ្ញាសាទី១-២០
+  const chooseOtherBtn = document.getElementById("chooseOtherBtn");
+  if (chooseOtherBtn && category) {
+    let exitUrl = `category.html?category=${category.id}`;
+    if (result.rawSetId && result.rawLevelId && result.rawTypeId) {
+      exitUrl += `&type=${result.rawLevelId}&topic=${result.rawTypeId}`;
+    } else if (result.rawLevelId) {
+      exitUrl += `&type=${result.rawLevelId}`;
+    } else if (
+      result.rawTypeId &&
+      result.rawTypeId !== "general" &&
+      result.rawTypeId !== "mixed"
+    ) {
+      exitUrl += `&type=${result.rawTypeId}`;
+    }
+    chooseOtherBtn.href = exitUrl;
+  }
 
   // បង្ហាញការពិនិត្យចម្លើយឡើងវិញ (Review Answers) នៅខាងក្រោមប៊ូតុងសកម្មភាព
   const resultActions = document.querySelector(".result-actions");
@@ -504,7 +600,7 @@ function renderResult() {
 
     reviewContainer.innerHTML = `
       <div style="margin-top: 1rem;">
-        <button id="toggleReviewBtn" class="secondary-action link-action" style="width: 100%; cursor: pointer; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <button id="toggleReviewBtn" class="primary-action" style="width: 100%; cursor: pointer; background: var(--green, #28a745); color: white; border: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
           <i class="fa-solid fa-magnifying-glass"></i>
           <span>ពិនិត្យចម្លើយឡើងវិញ</span>
         </button>
@@ -518,10 +614,10 @@ function renderResult() {
               const isCorrect = userAns === q.answer;
               return `
               <div style="background: var(--surface); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem; border-left: 5px solid ${isCorrect ? "var(--green, #28a745)" : "#ff3b30"}; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                <p style="margin-bottom: 0.8rem; line-height: 1.5;"><strong>${index + 1}. ${q.text}</strong></p>
-                <div style="font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.4rem;">
-                  <div style="color: var(--green, #28a745); display: flex; align-items: flex-start; gap: 8px;"><i class="fa-solid fa-circle-check" style="margin-top: 3px;"></i> <span>ចម្លើយត្រឹមត្រូវ៖ ${q.options[q.answer]}</span></div>
-                  ${!isCorrect ? `<div style="color: #ff3b30; display: flex; align-items: flex-start; gap: 8px;"><i class="fa-solid fa-circle-xmark" style="margin-top: 3px;"></i> <span>ចម្លើយរបស់អ្នក៖ ${userAns !== null ? q.options[userAns] : "មិនបានឆ្លើយ"}</span></div>` : ""}
+                <p style="margin-bottom: 1rem; line-height: 1.5; color: var(--ink);"><strong>${index + 1}. ${q.text}</strong></p>
+                <div style="font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.6rem;">
+                  ${!isCorrect ? `<div style="background: rgba(255, 59, 48, 0.08); border: 1px solid rgba(255, 59, 48, 0.2); color: #ff3b30; padding: 10px 12px; border-radius: 8px; display: flex; align-items: flex-start; gap: 8px;"><i class="fa-solid fa-circle-xmark" style="margin-top: 2px; font-size: 1.1rem;"></i> <span><strong>ចម្លើយរបស់អ្នក៖</strong> ${userAns !== null ? q.options[userAns] : "មិនបានឆ្លើយ"}</span></div>` : ""}
+                  <div style="background: rgba(40, 167, 69, 0.08); border: 1px solid rgba(40, 167, 69, 0.2); color: var(--green, #28a745); padding: 10px 12px; border-radius: 8px; display: flex; align-items: flex-start; gap: 8px;"><i class="fa-solid fa-circle-check" style="margin-top: 2px; font-size: 1.1rem;"></i> <span><strong>ចម្លើយត្រឹមត្រូវ៖</strong> ${q.options[q.answer]}</span></div>
                 </div>
               </div>`;
             })
