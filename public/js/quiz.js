@@ -45,6 +45,20 @@ const selectedLevel = levelId
   ? examTypes.find((type) => type.id === levelId)
   : null;
 
+function getExitUrl() {
+  let exitUrl = `category.html?category=${category.id}`;
+
+  if (setId && levelId && typeId) {
+    exitUrl += `&type=${levelId}&topic=${typeId}`;
+  } else if (levelId) {
+    exitUrl += `&type=${levelId}`;
+  } else if (typeId && typeId !== "general" && typeId !== "mixed") {
+    exitUrl += `&type=${typeId}`;
+  }
+
+  return exitUrl;
+}
+
 // ==========================================================================
 // ២. ការចម្រោះ និងរៀបចំសំណួរ (Filter & Shuffle Logic)
 // ==========================================================================
@@ -57,9 +71,9 @@ const filteredPool = category.questions.filter((q) => {
     return false;
   }
 
-  // ប្រសិនបើជាវិញ្ញាសាចម្រុះ (general/mixed) គឺយកសំណួរទាំងអស់ក្នុង category
+  // ប្រសិនបើជាវិញ្ញាសាចម្រុះ (general/mixed) គឺយកតែសំណួរដែលត្រូវនឹងកម្រិត បើមាន levelId។
   if (typeId === "general" || typeId === "mixed") {
-    return true;
+    return !levelId || q.tags.includes(levelId);
   }
 
   // សម្រាប់វិញ្ញាសាជាក់លាក់ ត្រូវផ្គូផ្គងទាំង typeId និង levelId (បើមាន)
@@ -68,10 +82,8 @@ const filteredPool = category.questions.filter((q) => {
   return matchType && matchLevel;
 });
 
-// ច្របល់សំណួរចេញពី Pool ដែលបានចម្រោះរួច (បើចម្រោះហើយអត់មានសំណួរ ឱ្យយកសំណួរទាំងអស់ក្នុង Category មកប្រើជំនួស)
-const rawQuestions = shuffleQuizQuestions(
-  filteredPool.length > 0 ? filteredPool : category.questions,
-);
+// ច្របល់សំណួរចេញពី Pool ដែលបានចម្រោះរួច។ បើគ្មានសំណួរ គឺបង្ហាញសារថាមិនទាន់មានទិន្នន័យ។
+const rawQuestions = shuffleQuizQuestions(filteredPool);
 
 let questions = rawQuestions.slice(0, 20);
 
@@ -133,6 +145,11 @@ function shuffleQuizQuestions(items) {
 // ៥. អនុគមន៍បង្ហាញ និងគ្រប់គ្រងតេស្ត (Core Quiz Logic)
 // ==========================================================================
 function renderQuestion() {
+  if (questions.length === 0) {
+    renderEmptyQuiz();
+    return;
+  }
+
   const question = questions[currentIndex];
   const selectedAnswer = answers[currentIndex];
   const hasAnswered = selectedAnswer !== null;
@@ -177,6 +194,25 @@ function renderQuestion() {
   nextBtn.disabled = !hasAnswered;
   nextBtn.querySelector("span").textContent =
     currentIndex === questions.length - 1 ? "បញ្ចប់" : "បន្ទាប់";
+}
+
+function renderEmptyQuiz() {
+  const title = selectedLevel
+    ? `${selectedLevel.title} - ${selectedType.title}`
+    : selectedType.title;
+
+  quizCategory.textContent = title;
+  quizProgressText.textContent = "មិនទាន់មានសំណួរ";
+  progressBar.style.width = "0%";
+  questionNumber.textContent = "មិនទាន់មានទិន្នន័យ";
+  questionText.textContent =
+    "មុខវិជ្ជា ឬវិញ្ញាសានេះមិនទាន់បានបញ្ចូលសំណួរនៅឡើយទេ។";
+  answerList.innerHTML = "";
+  answerFeedback.className = "answer-feedback is-visible";
+  answerFeedback.innerHTML =
+    '<i class="fa-solid fa-circle-info"></i><span>សូមជ្រើសរើសប្រភេទផ្សេង ឬបញ្ចូលសំណួរជាមុនសិន។</span>';
+  nextBtn.disabled = true;
+  nextBtn.querySelector("span").textContent = "មិនទាន់មានសំណួរ";
 }
 
 function renderFeedback(question, selectedAnswer) {
@@ -237,15 +273,7 @@ cancelExit.addEventListener("click", () => {
 });
 
 confirmExit.addEventListener("click", () => {
-  let exitUrl = `category.html?category=${category.id}`;
-  if (setId && levelId && typeId) {
-    exitUrl += `&type=${levelId}&topic=${typeId}`;
-  } else if (levelId) {
-    exitUrl += `&type=${levelId}`;
-  } else if (typeId && typeId !== "general" && typeId !== "mixed") {
-    exitUrl += `&type=${typeId}`;
-  }
-  window.location.href = exitUrl;
+  window.location.href = getExitUrl();
 });
 
 nextBtn.addEventListener("click", () => {
@@ -265,15 +293,7 @@ nextBtn.addEventListener("click", () => {
 // ==========================================================================
 // ពិនិត្យថាមានប៊ូតុងចាកចេញឬអត់ មុនពេលកំណត់ Link ដើម្បីការពារកំហុស JS
 if (quitQuiz) {
-  let exitUrl = `category.html?category=${category.id}`;
-  if (setId && levelId && typeId) {
-    exitUrl += `&type=${levelId}&topic=${typeId}`;
-  } else if (levelId) {
-    exitUrl += `&type=${levelId}`;
-  } else if (typeId && typeId !== "general" && typeId !== "mixed") {
-    exitUrl += `&type=${typeId}`;
-  }
-  quitQuiz.href = exitUrl;
+  quitQuiz.href = getExitUrl();
 }
 
 // កំណត់ពណ៌ប៊ូតុង បន្ទាប់ (ពណ៌បៃតង) និង ចាកចេញ (ពណ៌ក្រហម)

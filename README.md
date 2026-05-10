@@ -1,6 +1,7 @@
-# TreamExam (ត្រៀមប្រឡង)
+# TreamExam
 
-A knowledge testing system designed to help students prepare for Cambodian Ministry and state institution exams.
+A knowledge testing system designed to help students prepare for Cambodian
+Ministry and state institution exams.
 
 ## Project Structure
 
@@ -9,37 +10,52 @@ content is located in the `public/` directory:
 
 ```text
 .
-├── .gitignore
-├── README.md
-└── public/
-    ├── index.html
-    ├── about.html
-    ├── category.html
-    ├── quiz.html
-    ├── result.html
-    ├── under-development.html
-    ├── assets/
-    │   └── images/
-    ├── css/
-    │   ├── home.css
-    │   ├── quiz.css
-    │   ├── responsive.css
-    │   └── style.css
-    └── js/
-        ├── app.js
-        ├── culture.js
-        ├── data.js
-        ├── english.js
-        ├── primary.js
-        ├── quiz.js
-        └── secondary.js
+|-- .gitignore
+|-- README.md
+`-- public/
+    |-- index.html
+    |-- about.html
+    |-- category.html
+    |-- quiz.html
+    |-- result.html
+    |-- under-development.html
+    |-- assets/
+    |   `-- images/
+    |       |-- brand/
+    |       `-- ministries/
+    |-- css/
+    |   |-- home.css
+    |   |-- quiz.css
+    |   |-- responsive.css
+    |   `-- style.css
+    `-- js/
+        |-- app.js
+        |-- data.js
+        |-- quiz.js
+        `-- questions/
+            |-- culture/
+            |-- foreign-language/
+            |-- preschool-primary-teacher/
+            |-- lower-secondary-teacher/
+            |-- high-school-teacher/
+            `-- culture.js
 ```
 
-- `public/assets`: Contains logos and ministry-related imagery.
-- `public/css`: Contains the responsive design styles.
+Question folders in `public/js/questions/`:
+
+- `foreign-language`: English and French question files.
+- `preschool-primary-teacher`: Khmer and math question files.
+- `lower-secondary-teacher`: Lower-secondary teacher question files by subject.
+- `high-school-teacher`: High-school teacher question files by subject.
+
+Other important folders:
+
+- `public/assets/images/brand`: TreamExam logo files.
+- `public/assets/images/ministries`: Ministry-related imagery.
+- `public/css`: Responsive design styles.
+- `public/js/app.js`: Global navigation and page rendering.
 - `public/js/data.js`: Combines question banks into the app data.
-- `public/js/app.js`: Handles global navigation and page rendering.
-- `public/js/quiz.js`: Handles quiz mechanics, shuffling, and scoring.
+- `public/js/quiz.js`: Quiz mechanics, shuffling, and scoring.
 
 ## Local Development
 
@@ -49,4 +65,5 @@ content is located in the `public/` directory:
 
 ## Deployment
 
-This project is optimized for hosting via **GitHub Pages** by serving the `public` folder.
+This project is optimized for hosting via GitHub Pages by serving the `public`
+folder.

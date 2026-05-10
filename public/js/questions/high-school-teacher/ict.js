@@ -1,11 +1,11 @@
-// --- ផ្នែកទី១៖ វិញ្ញាសា វប្បធម៌ទូទៅ ---
-const eduCultureQuestions = [
+// High-school teacher questions: ICT
+const eduHighSchoolIctQuestions = [
   /*
   {
     text: "សំណួររបស់អ្នកនៅទីនេះ?",
     options: ["ជម្រើស ក", "ជម្រើស ខ", "ជម្រើស គ", "ជម្រើស ឃ"],
-    tags: ["culture", "set-1"],
-    answer: 0, // 0=ក, 1=ខ, 2=គ, 3=ឃ
+    tags: ["highschool", "ict", "set-1"],
+    answer: 0,
   },
   */
 ];
