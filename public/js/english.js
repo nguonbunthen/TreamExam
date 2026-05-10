@@ -1,19 +1,3 @@
-// ==========================================================================
-// ឃ្លាំងសំណួរសម្រាប់ក្រសួងអប់រំ យុវជន និងកីឡា
-// ==========================================================================
-
-// --- ផ្នែកទី១៖ វិញ្ញាសា វប្បធម៌ទូទៅ ---
-const eduCultureQuestions = [
-  /*
-  {
-    text: "សំណួររបស់អ្នកនៅទីនេះ?",
-    options: ["ជម្រើស ក", "ជម្រើស ខ", "ជម្រើស គ", "ជម្រើស ឃ"],
-    tags: ["culture", "set-1"],
-    answer: 0, // 0=ក, 1=ខ, 2=គ, 3=ឃ
-  },
-  */
-];
-
 // --- ផ្នែកទី២៖ វិញ្ញាសា ភាសាបរទេស ---
 const eduLanguageQuestions = [
   {
@@ -2833,736 +2817,722 @@ const eduLanguageQuestions = [
   },
   {
     text: "By the time the principal arrives, the students _______ the classroom.",
-    options: ["will already clean", "will have already cleaned", "already cleaned", "are already cleaning"],
+    options: [
+      "will already clean",
+      "will have already cleaned",
+      "already cleaned",
+      "are already cleaning",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "If the teacher _______ earlier, she could have explained the lesson more clearly.",
     options: ["comes", "came", "had come", "has come"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "The new physics teacher, _______ car is parked outside, is very strict.",
     options: ["who", "whom", "whose", "that"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "I would rather you _______ your assignment on time next week.",
     options: ["submit", "submitted", "submitting", "to submit"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "The school board demanded that the student _______ to the principal's office immediately.",
     options: ["goes", "go", "went", "going"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "You shouldn't have _______ to your classmate in such a rude manner.",
     options: ["speak", "speaking", "spoke", "spoken"],
     tags: ["language", "english", "set-9"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "Mr. Dara is completely dedicated _______ his students' academic success.",
     options: ["to", "for", "with", "on"],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "Neither the boys nor the girl _______ allowed to enter the laboratory without permission.",
     options: ["are", "is", "have been", "were"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "As a new teacher, I am not used to _______ up so early every morning.",
     options: ["wake", "woke", "waking", "woken"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "The headmaster had the broken windows in the library _______ yesterday.",
     options: ["fix", "to fix", "fixing", "fixed"],
     tags: ["language", "english", "set-9"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "Hardly _______ the room when the students started asking questions.",
-    options: ["had the teacher entered", "the teacher had entered", "did the teacher enter", "entered the teacher"],
+    options: [
+      "had the teacher entered",
+      "the teacher had entered",
+      "did the teacher enter",
+      "entered the teacher",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "It was _______ a difficult physics problem that nobody in the class could solve it.",
     options: ["so", "very", "too", "such"],
     tags: ["language", "english", "set-9"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "The _______ you prepare for the pedagogical exam, the _______ your results will be.",
-    options: ["hard / good", "harder / better", "hardest / best", "more hard / more better"],
+    options: [
+      "hard / good",
+      "harder / better",
+      "hardest / best",
+      "more hard / more better",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Despite _______ exhausted, the teacher stayed late to help the weak students.",
     options: ["he was", "be", "being", "of being"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "A visitor asked me where _______.",
-    options: ["was the principal's office", "the principal's office was", "is the principal's office", "the principal's office is"],
+    options: [
+      "was the principal's office",
+      "the principal's office was",
+      "is the principal's office",
+      "the principal's office is",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "I wish I _______ the answer to that student's question right now.",
     options: ["know", "knew", "had known", "will know"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Let's take a 10-minute break before continuing the experiment, _______?",
     options: ["will we", "won't we", "shall we", "don't we"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "A large number of students _______ planning to participate in the science fair.",
     options: ["is", "are", "has", "was"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Do you mind _______ the window? It's getting quite hot in here.",
     options: ["close", "to close", "closed", "closing"],
     tags: ["language", "english", "set-9"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "After the experiment, the laboratory definitely needs _______.",
     options: ["clean", "to clean", "cleaning", "cleaned"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Classroom management is an essential skill for all teachers. (Choose the synonym)",
     options: ["optional", "unnecessary", "crucial", "difficult"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "The school rules strictly prohibit students from using smartphones during exams. (Choose the antonym)",
     options: ["forbid", "ban", "allow", "prevent"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Due to the heavy rain, the outdoor sports event was _______.",
     options: ["put on", "put off", "put out", "put up"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "_______ is defined as the method and practice of teaching.",
     options: ["Pedagogy", "Psychology", "Philosophy", "Physiology"],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "The school _______ includes mathematics, physics, chemistry, and literature.",
     options: ["timetable", "curriculum", "regulation", "facility"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Copying information from the internet without giving credit is known as _______.",
     options: ["brainstorming", "plagiarism", "creativity", "evaluation"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "A fair teacher must remain _______ when grading students' exam papers.",
     options: ["biased", "objective", "subjective", "emotional"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "The students couldn't _______ how to solve the final math problem.",
     options: ["look into", "make up", "figure out", "take over"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "A _______ person always arrives at school exactly on time.",
     options: ["lazy", "strict", "punctual", "friendly"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "If a student decides to quit school before graduating, he or she is considered a _______.",
     options: ["drop in", "drop out", "drop off", "drop down"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "The teacher gave a very comprehensive review before the national exam. (Choose the synonym)",
     options: ["thorough", "limited", "confusing", "short"],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "He was late for class again, so he tried to _______ a story about a flat tire.",
     options: ["do up", "make up", "take up", "keep up"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "The principal promised to _______ the issue of bullying in the schoolyard.",
     options: ["look after", "look into", "look up", "look out"],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "It is hard for her to keep _______ with the rest of the class after being sick.",
     options: ["up", "on", "out", "off"],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "You must learn this physics formula by _______ for tomorrow's test.",
     options: ["head", "mind", "brain", "heart"],
     tags: ["language", "english", "set-9"],
-    answer: 3
+    answer: 3,
   },
   {
-    text: "Teacher: \"Time is up! Please _______.\"",
-    options: ["open your books", "stop writing and hand in your papers", "talk to your friends", "go outside to play"],
+    text: 'Teacher: "Time is up! Please _______."',
+    options: [
+      "open your books",
+      "stop writing and hand in your papers",
+      "talk to your friends",
+      "go outside to play",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Student: \"_______ I go to the restroom, please?\" - Teacher: \"Yes, you may. But don't take too long.\"",
+    text: 'Student: "_______ I go to the restroom, please?" - Teacher: "Yes, you may. But don\'t take too long."',
     options: ["Must", "Should", "May", "Will"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Colleague: \"I heard you passed your Master's degree defense. Congratulations!\" - You: \"_______ It was a lot of hard work.\"",
-    options: ["Same to you!", "Thank you so much!", "I don't care.", "You are welcome."],
+    text: 'Colleague: "I heard you passed your Master\'s degree defense. Congratulations!" - You: "_______ It was a lot of hard work."',
+    options: [
+      "Same to you!",
+      "Thank you so much!",
+      "I don't care.",
+      "You are welcome.",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Student: \"I'm sorry, I didn't catch the last instruction.\" - Teacher: \"Would you like me to _______ it?\"",
+    text: 'Student: "I\'m sorry, I didn\'t catch the last instruction." - Teacher: "Would you like me to _______ it?"',
     options: ["ignore", "delete", "repeat", "translate"],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Teacher A: \"I believe we should use more interactive games in teaching.\" - Teacher B: \"_______! It keeps the students engaged and motivated.\"",
-    options: ["I completely disagree", "That's a terrible idea", "I couldn't agree more", "You shouldn't do that"],
+    text: 'Teacher A: "I believe we should use more interactive games in teaching." - Teacher B: "_______! It keeps the students engaged and motivated."',
+    options: [
+      "I completely disagree",
+      "That's a terrible idea",
+      "I couldn't agree more",
+      "You shouldn't do that",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Principal: \"_______ the new grading system we implemented this month?\" - Teacher: \"I find it very fair and accurate for assessing students.\"",
-    options: ["Do you know", "What do you think of", "How do you do", "Are you sure about"],
+    text: 'Principal: "_______ the new grading system we implemented this month?" - Teacher: "I find it very fair and accurate for assessing students."',
+    options: [
+      "Do you know",
+      "What do you think of",
+      "How do you do",
+      "Are you sure about",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Student: \"I sincerely apologize for being late today.\" - Teacher: \"_______. Please take your seat quietly so you don't disturb the others.\"",
-    options: ["That's alright", "Get out of here", "I don't believe you", "Congratulations"],
+    text: 'Student: "I sincerely apologize for being late today." - Teacher: "_______. Please take your seat quietly so you don\'t disturb the others."',
+    options: [
+      "That's alright",
+      "Get out of here",
+      "I don't believe you",
+      "Congratulations",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Teacher: \"We have finished Chapter 4. Are there any questions?\" - Students: \"_______ Everything is completely clear.\"",
-    options: ["Yes, please.", "No, teacher.", "We have many questions.", "What is the time?"],
+    text: 'Teacher: "We have finished Chapter 4. Are there any questions?" - Students: "_______ Everything is completely clear."',
+    options: [
+      "Yes, please.",
+      "No, teacher.",
+      "We have many questions.",
+      "What is the time?",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Colleague: \"You look busy. Let me help you carry those exam papers.\" - You: \"_______\"",
-    options: ["No, I hate you.", "That's very kind of you. Thanks!", "Why are you helping me?", "I agree with you."],
+    text: 'Colleague: "You look busy. Let me help you carry those exam papers." - You: "_______"',
+    options: [
+      "No, I hate you.",
+      "That's very kind of you. Thanks!",
+      "Why are you helping me?",
+      "I agree with you.",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Teacher: \"Alright class, please _______ to page 75 in your textbook.\"",
+    text: 'Teacher: "Alright class, please _______ to page 75 in your textbook."',
     options: ["turn", "open in", "read", "close"],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Teacher: \"If you know the answer to this equation, please _______ your hand.\"",
+    text: 'Teacher: "If you know the answer to this equation, please _______ your hand."',
     options: ["rise", "lift", "point", "raise"],
     tags: ["language", "english", "set-9"],
-    answer: 3
+    answer: 3,
   },
   {
-    text: "Student: \"I failed my physics test again. I am so stressed.\" - Teacher: \"_______! Let's sit down and review the mistakes together.\"",
-    options: ["Don't be discouraged", "Give up now", "You are very lazy", "Just sleep"],
+    text: 'Student: "I failed my physics test again. I am so stressed." - Teacher: "_______! Let\'s sit down and review the mistakes together."',
+    options: [
+      "Don't be discouraged",
+      "Give up now",
+      "You are very lazy",
+      "Just sleep",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Phone Call: \"Hello, could I speak to Mr. Sokha, the science teacher?\" - Secretary: \"_______ I will check if he is in the staff room.\"",
-    options: ["Who are you?", "Hold on, please.", "Call back later.", "He doesn't want to talk."],
+    text: 'Phone Call: "Hello, could I speak to Mr. Sokha, the science teacher?" - Secretary: "_______ I will check if he is in the staff room."',
+    options: [
+      "Who are you?",
+      "Hold on, please.",
+      "Call back later.",
+      "He doesn't want to talk.",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Colleague: \"Have a great weekend and get some rest!\" - You: \"Thanks! _______\"",
+    text: 'Colleague: "Have a great weekend and get some rest!" - You: "Thanks! _______"',
     options: ["You too!", "Me too!", "Yes, I do.", "Same here you."],
     tags: ["language", "english", "set-9"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Teacher: \"The bell has rung. That's all for today. _______!\" - Students: \"Goodbye, teacher. See you tomorrow.\"",
-    options: ["Class is starting", "Open your books", "Class is dismissed", "Listen to me"],
+    text: 'Teacher: "The bell has rung. That\'s all for today. _______!" - Students: "Goodbye, teacher. See you tomorrow."',
+    options: [
+      "Class is starting",
+      "Open your books",
+      "Class is dismissed",
+      "Listen to me",
+    ],
     tags: ["language", "english", "set-9"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "By the end of this month, the construction of the new school library _______.",
-    options: ["will have finished", "will have been finished", "will be finishing", "has finished"],
+    options: [
+      "will have finished",
+      "will have been finished",
+      "will be finishing",
+      "has finished",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "If the students _______ the instructions carefully, they wouldn't have made so many mistakes.",
     options: ["read", "reads", "had read", "have read"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "The principal, _______ office is on the ground floor, is a very kind man.",
     options: ["who", "whom", "whose", "that"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "All mobile phones _______ off before entering the examination room.",
     options: ["must turn", "must be turned", "must turning", "must to turn"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "We are really looking forward _______ the new teaching materials next semester.",
     options: ["to receive", "to receiving", "receiving", "received"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "The new science teacher is very responsible _______ preparing the laboratory experiments.",
     options: ["to", "with", "on", "for"],
     tags: ["language", "english", "set-10"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "The head of the department strongly recommended that Mr. Sok _______ for the scholarship.",
     options: ["applied", "applies", "apply", "applying"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Let's wrap up today's lesson and go home, _______?",
     options: ["will we", "won't we", "shall we", "don't we"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Never before _______ such a beautifully written essay from a grade 10 student.",
     options: ["I have read", "have I read", "I read", "did I read"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "When she first moved to the province to teach, she wasn't used _______ up at 5 AM.",
     options: ["to wake", "to waking", "wake", "woke"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "_______ the difficult circumstances, the rural school managed to produce top students.",
     options: ["Although", "Because", "Despite", "Even though"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "The teacher had the students _______ their assignments before Friday.",
     options: ["submit", "to submit", "submitting", "submitted"],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "Excuse me, do you know _______?",
-    options: ["where is the cafeteria", "where the cafeteria is", "the cafeteria is where", "is where the cafeteria"],
+    options: [
+      "where is the cafeteria",
+      "where the cafeteria is",
+      "the cafeteria is where",
+      "is where the cafeteria",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "The _______ you practice speaking English, the _______ fluent you will become.",
     options: ["much / more", "more / much", "more / more", "most / most"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "I failed the teaching methodology exam. I wish I _______ harder.",
     options: ["studied", "study", "had studied", "have studied"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Dara was absent from class for three days. He _______ been sick.",
     options: ["should have", "must have", "can have", "will have"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "She is taking an online course _______ her digital teaching skills.",
     options: ["to improve", "for improve", "improving", "improved"],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "It was _______ an inspiring lecture that all the students gave a standing ovation.",
     options: ["so", "very", "too", "such"],
     tags: ["language", "english", "set-10"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "A number of teachers _______ attending the workshop in the capital city today.",
     options: ["is", "are", "has", "was"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "After the chemistry experiment, the laboratory floor needs _______.",
     options: ["mop", "to mop", "mopping", "mopped"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Reading comprehension is a crucial skill for students to develop early on. (Choose the synonym)",
     options: ["optional", "essential", "difficult", "unnecessary"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Physical education is mandatory in all public high schools. (Choose the antonym)",
     options: ["compulsory", "required", "optional", "strict"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "The school committee promised to _______ the complaints about the strict discipline rules.",
     options: ["look after", "look out", "look up", "look into"],
     tags: ["language", "english", "set-10"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "The academic study of how to teach is commonly known as _______.",
     options: ["Philosophy", "Psychology", "Pedagogy", "Philanthropy"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Copying text from Wikipedia without referencing it is a clear example of _______.",
     options: ["brainstorming", "plagiarism", "evaluation", "creativity"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Joining the debate club is an excellent _______ activity for students.",
     options: ["irrelevant", "extracurricular", "mandatory", "useless"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Teacher, could you please _______ these test papers to the students in the front row?",
     options: ["hand in", "hand out", "turn down", "give up"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "Exams and quizzes are tools used by teachers to assess student learning. (Choose the synonym)",
     options: ["ignore", "confuse", "evaluate", "punish"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "A student who repeatedly skips classes without a valid excuse is said to be playing _______.",
     options: ["games", "sports", "truant", "music"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
     text: "Thanks to his outstanding academic record, he received a full _______ to university.",
     options: ["penalty", "punishment", "certificate", "scholarship"],
     tags: ["language", "english", "set-10"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "The math problem was so difficult that none of the students could _______ it out.",
     options: ["look", "make", "take", "figure"],
     tags: ["language", "english", "set-10"],
-    answer: 3
+    answer: 3,
   },
   {
     text: "A highly professional teacher is always _______; they never arrive late to class.",
     options: ["punctual", "strict", "lazy", "arrogant"],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "The principal gave a very comprehensive report on the school's performance. (Choose the synonym)",
     options: ["limited", "thorough", "confusing", "brief"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
     text: "The document containing the course outline and policies distributed at the start of a semester is the _______.",
     options: ["syllabus", "dictionary", "timetable", "register"],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
     text: "Many students _______ of school in rural areas to help their families work.",
     options: ["drop in", "drop out", "drop off", "drop down"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Student: \"_______ I ask a question regarding the final assignment, please?\" - Teacher: \"Of course. What would you like to know?\"",
+    text: 'Student: "_______ I ask a question regarding the final assignment, please?" - Teacher: "Of course. What would you like to know?"',
     options: ["Must", "Will", "May", "Should"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Student: \"I sincerely apologize for turning in my essay late. I was hospitalized.\" - Teacher: \"_______. Just make sure to catch up on the reading.\"",
-    options: ["That's alright", "Get out of my class", "I don't care", "You are welcome"],
+    text: 'Student: "I sincerely apologize for turning in my essay late. I was hospitalized." - Teacher: "_______. Just make sure to catch up on the reading."',
+    options: [
+      "That's alright",
+      "Get out of my class",
+      "I don't care",
+      "You are welcome",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Colleague: \"I have to move these heavy desks to the new classroom.\" - You: \"_______ I have some free time now.\"",
-    options: ["Too bad for you.", "Let me give you a hand.", "Why should I care?", "Do it yourself."],
+    text: 'Colleague: "I have to move these heavy desks to the new classroom." - You: "_______ I have some free time now."',
+    options: [
+      "Too bad for you.",
+      "Let me give you a hand.",
+      "Why should I care?",
+      "Do it yourself.",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Principal: \"_______ the new interactive whiteboards?\" - Teacher: \"They are amazing! The students are much more engaged.\"",
-    options: ["Do you know", "How do you do", "What do you think of", "Are you sure about"],
+    text: 'Principal: "_______ the new interactive whiteboards?" - Teacher: "They are amazing! The students are much more engaged."',
+    options: [
+      "Do you know",
+      "How do you do",
+      "What do you think of",
+      "Are you sure about",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Teacher A: \"I believe teachers should be paid more for their hard work.\" - Teacher B: \"_______! It is a very demanding profession.\"",
-    options: ["I completely disagree", "That's a bad idea", "I couldn't agree more", "You shouldn't say that"],
+    text: 'Teacher A: "I believe teachers should be paid more for their hard work." - Teacher B: "_______! It is a very demanding profession."',
+    options: [
+      "I completely disagree",
+      "That's a bad idea",
+      "I couldn't agree more",
+      "You shouldn't say that",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Student: \"I'm sorry, the background noise was too loud. _______?\" - Teacher: \"Sure, I said the test is postponed to next week.\"",
-    options: ["Could you repeat that, please", "Why are you so quiet", "Are you okay", "What is your name"],
+    text: 'Student: "I\'m sorry, the background noise was too loud. _______?" - Teacher: "Sure, I said the test is postponed to next week."',
+    options: [
+      "Could you repeat that, please",
+      "Why are you so quiet",
+      "Are you okay",
+      "What is your name",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Teacher A: \"My voice is completely gone from teaching all day.\" - Teacher B: \"You _______ drink some warm lemon water and rest your vocal cords.\"",
+    text: 'Teacher A: "My voice is completely gone from teaching all day." - Teacher B: "You _______ drink some warm lemon water and rest your vocal cords."',
     options: ["dare", "ought", "should", "wouldn't"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Colleague: \"I just got the 'Teacher of the Year' award!\" - You: \"_______! Your dedication truly deserves it.\"",
+    text: 'Colleague: "I just got the \'Teacher of the Year\' award!" - You: "_______! Your dedication truly deserves it."',
     options: ["Good luck", "Thank you", "Congratulations", "Bless you"],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Teacher: \"Please stop writing and close your booklets. _______!\"",
+    text: 'Teacher: "Please stop writing and close your booklets. _______!"',
     options: ["Time is up", "Time is out", "Time is over", "Time is off"],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Teacher: \"Do you _______ why we use this formula for velocity now?\" - Student: \"Yes, your explanation made it very clear.\"",
+    text: 'Teacher: "Do you _______ why we use this formula for velocity now?" - Student: "Yes, your explanation made it very clear."',
     options: ["look", "see", "watch", "hear"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Student: \"I failed the math test again. I am so discouraged.\" - Teacher: \"_______! Let's sit down and figure out where you went wrong.\"",
-    options: ["Give up now", "Don't lose hope", "You are right", "I agree with you"],
+    text: 'Student: "I failed the math test again. I am so discouraged." - Teacher: "_______! Let\'s sit down and figure out where you went wrong."',
+    options: [
+      "Give up now",
+      "Don't lose hope",
+      "You are right",
+      "I agree with you",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "New Inspector: \"How do you do? I'm here to observe your class today.\" - You: \"_______ Welcome to our school.\"",
-    options: ["I am doing well.", "What are you doing?", "How do you do?", "I am fine, thanks."],
+    text: 'New Inspector: "How do you do? I\'m here to observe your class today." - You: "_______ Welcome to our school."',
+    options: [
+      "I am doing well.",
+      "What are you doing?",
+      "How do you do?",
+      "I am fine, thanks.",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 2
+    answer: 2,
   },
   {
-    text: "Teacher in class: \"Alright everyone, please _______ to the vocabulary section on page 112.\"",
+    text: 'Teacher in class: "Alright everyone, please _______ to the vocabulary section on page 112."',
     options: ["turn", "open in", "look up", "close"],
     tags: ["language", "english", "set-10"],
-    answer: 0
+    answer: 0,
   },
   {
-    text: "Phone call: \"Hello, is the Head of the Science Department available?\" - Secretary: \"He is currently teaching. Would you like to _______?\"",
+    text: 'Phone call: "Hello, is the Head of the Science Department available?" - Secretary: "He is currently teaching. Would you like to _______?"',
     options: ["hang up", "leave a message", "call you later", "stop calling"],
     tags: ["language", "english", "set-10"],
-    answer: 1
+    answer: 1,
   },
   {
-    text: "Teacher: \"That's the bell! Don't forget your homework. _______!\" - Students: \"Thank you, teacher. See you tomorrow!\"",
-    options: ["Welcome back", "Open your books", "Class is dismissed", "Listen to me"],
+    text: 'Teacher: "That\'s the bell! Don\'t forget your homework. _______!" - Students: "Thank you, teacher. See you tomorrow!"',
+    options: [
+      "Welcome back",
+      "Open your books",
+      "Class is dismissed",
+      "Listen to me",
+    ],
     tags: ["language", "english", "set-10"],
-    answer: 2
-  },
-];
-
-// --- ផ្នែកទី៣៖ វិញ្ញាសា គ្រូមត្តេយ្យ និងបឋម ---
-const eduPrimaryQuestions = [
-  /*
-  {
-    text: "សំណួររបស់អ្នកនៅទីនេះ?",
-    options: ["ជម្រើស ក", "ជម្រើស ខ", "ជម្រើស គ", "ជម្រើស ឃ"],
-    tags: ["primary", "set-1"],
-    answer: 0,
-  },
-  */
-];
-
-// --- ផ្នែកទី៤៖ វិញ្ញាសា គ្រូអនុវិទ្យាល័យ និងវិទ្យាល័យ ---
-const eduSecondaryHighSchoolQuestions = [
-  /*
-  {
-    text: "សំណួររបស់អ្នកនៅទីនេះ?",
-    options: ["ជម្រើស ក", "ជម្រើស ខ", "ជម្រើស គ", "ជម្រើស ឃ"],
-    tags: ["secondary", "highschool", "set-1"],
-    answer: 0,
-  },
-  */
-];
-
-// ==========================================================================
-// ទិន្នន័យក្រសួងរួម (Categories Data)
-// ==========================================================================
-const examData = [
-  {
-    id: "education",
-    title: "ក្រសួងអប់រំ យុវជន និងកីឡា",
-    shortTitle: "អប់រំ",
-    image: "assets/images/education.png",
-    color: "#3467d6",
-    description:
-      "កម្រងវិញ្ញាសាជ្រើសរើសពិសេសសម្រាប់ត្រៀមប្រឡងក្របខណ្ឌមន្ត្រីរាជការ ក្នុងវិស័យអប់រំ យុវជន និងកីឡា។",
-    questions: [
-      // ផ្គុំសំណួរពីគ្រប់ផ្នែកចូលគ្នាដោយស្វ័យប្រវត្តិ
-      ...eduCultureQuestions,
-      ...eduLanguageQuestions,
-      ...eduPrimaryQuestions,
-      ...eduSecondaryHighSchoolQuestions,
-    ],
-  },
-  {
-    id: "health",
-    title: "ក្រសួងសុខាភិបាល",
-    shortTitle: "សុខាភិបាល",
-    image: "assets/images/health.png",
-    color: "#039bb8",
-    description: "សំណួរគំរូអំពីសុខភាពសាធារណៈ និងសេវាសុខាភិបាល។",
-    questions: [
-      /*
-      {
-        text: "សំណួររបស់អ្នកនៅទីនេះ?",
-        options: [
-          "ជម្រើស ក",
-          "ជម្រើស ខ",
-          "ជម្រើស គ",
-          "ជម្រើស ឃ",
-        ],
-        answer: 0,
-      },
-      */
-    ],
-  },
-  {
-    id: "interior",
-    title: "ក្រសួងមហាផ្ទៃ",
-    shortTitle: "មហាផ្ទៃ",
-    image: "assets/images/police.svg",
-    color: "#d88718",
-    description: "សំណួរគំរូអំពីរដ្ឋបាល សន្តិសុខ និងសណ្តាប់ធ្នាប់សាធារណៈ។",
-    questions: [
-      /*
-      {
-        text: "សំណួររបស់អ្នកនៅទីនេះ?",
-        options: [
-          "ជម្រើស ក",
-          "ជម្រើស ខ",
-          "ជម្រើស គ",
-          "ជម្រើស ឃ",
-        ],
-        answer: 0,
-      },
-      */
-    ],
-  },
-  {
-    id: "civil",
-    title: "ក្រសួងមុខងារសាធារណៈ",
-    shortTitle: "មុខងារសាធារណៈ",
-    image: "assets/images/MSC.png",
-    color: "#25845a",
-    description: "សំណួរគំរូអំពីមន្ត្រីរាជការ ក្រមសីលធម៌ និងសេវាសាធារណៈ។",
-    questions: [
-      /*
-      {
-        text: "សំណួររបស់អ្នកនៅទីនេះ?",
-        options: [
-          "ជម្រើស ក",
-          "ជម្រើស ខ",
-          "ជម្រើស គ",
-          "ជម្រើស ឃ",
-        ],
-        answer: 0,
-      },
-      */
-    ],
-  },
-  {
-    id: "agriculture",
-    title: "ក្រសួងកសិកម្ម រុក្ខាប្រមាញ់ និងនេសាទ",
-    shortTitle: "កសិកម្ម",
-    image: "assets/images/MAFF.png",
-    color: "#b88311",
-    description: "សំណួរគំរូអំពីកសិកម្ម ធនធានធម្មជាតិ និងនេសាទ។",
-    questions: [
-      /*
-      {
-        text: "សំណួររបស់អ្នកនៅទីនេះ?",
-        options: [
-          "ជម្រើស ក",
-          "ជម្រើស ខ",
-          "ជម្រើស គ",
-          "ជម្រើស ឃ",
-        ],
-        answer: 0,
-      },
-      */
-    ],
+    answer: 2,
   },
 ];

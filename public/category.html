@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>លទ្ធផល | TreamExam</title>
+    <title>ជ្រើសរើសប្រភេទវិញ្ញាសា | TreamExam</title>
     <meta name="theme-color" content="#9a623a" />
     <link rel="icon" type="image/png" href="assets/images/logo1.png" />
     <link rel="apple-touch-icon" href="assets/images/logo1.png" />
@@ -85,56 +85,26 @@
         >
       </nav>
 
-      <section class="result-card">
-        <div class="score-ring" id="scoreRing">
-          <strong id="scorePercent">0%</strong>
-          <span>ពិន្ទុ</span>
-        </div>
-        <h1 id="resultTitle">លទ្ធផលតេស្ត</h1>
-        <p id="resultMessage">ធ្វើតេស្តមួយ ដើម្បីមើលលទ្ធផលរបស់អ្នក។</p>
-      </section>
+      <section class="category-list" id="categoryDetail"></section>
 
-      <section class="result-stats">
+      <section class="section-head">
         <div>
-          <span>ត្រឹមត្រូវ</span>
-          <strong id="correctCount">0</strong>
-        </div>
-        <div>
-          <span>សំណួរសរុប</span>
-          <strong id="totalCount">0</strong>
-        </div>
-        <div>
-          <span>ប្រភេទ</span>
-          <strong id="resultCategory">-</strong>
+          <p>ជំហានបន្ទាប់</p>
+          <h2>ជ្រើសរើសប្រភេទវិញ្ញាសា</h2>
         </div>
       </section>
 
-      <div class="result-actions">
-        <a
-          class="primary-action"
-          id="nextSetBtn"
-          href="#"
-          style="display: none"
-        >
-          <span>បន្តទៅវិញ្ញាសាបន្ទាប់</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a class="primary-action" id="retryBtn" href="index.html">
-          <span>ធ្វើតេស្តម្តងទៀត</span>
-          <i class="fa-solid fa-rotate-right"></i>
-        </a>
-        <a
-          class="secondary-action link-action"
-          id="chooseOtherBtn"
-          href="index.html"
-        >
-          <i class="fa-solid fa-layer-group"></i>
-          <span>ជ្រើសរើសវិញ្ញាសាផ្សេង</span>
-        </a>
-      </div>
+      <section
+        class="exam-type-list"
+        id="examTypeList"
+        aria-label="ប្រភេទវិញ្ញាសា"
+      ></section>
     </main>
 
+    <script src="js/culture.js"></script>
     <script src="js/english.js"></script>
+    <script src="js/primary.js"></script>
+    <script src="js/secondary.js"></script>
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
   </body>

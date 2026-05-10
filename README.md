@@ -4,14 +4,42 @@ A knowledge testing system designed to help students prepare for Cambodian Minis
 
 ## Project Structure
 
-All website content is located in the `public/` directory:
+Configuration and documentation stay in the repository root. All website
+content is located in the `public/` directory:
 
-- `/assets`: Contains logos and ministry-related imagery.
-- `/css`: Contains the responsive design styles.
-- `/js`:
-  - `data.js`: The question bank.
-  - `app.js`: Global navigation and theme management.
-  - `quiz.js`: The core quiz mechanics (shuffling, scoring).
+```text
+.
+├── .gitignore
+├── README.md
+└── public/
+    ├── index.html
+    ├── about.html
+    ├── category.html
+    ├── quiz.html
+    ├── result.html
+    ├── under-development.html
+    ├── assets/
+    │   └── images/
+    ├── css/
+    │   ├── home.css
+    │   ├── quiz.css
+    │   ├── responsive.css
+    │   └── style.css
+    └── js/
+        ├── app.js
+        ├── culture.js
+        ├── data.js
+        ├── english.js
+        ├── primary.js
+        ├── quiz.js
+        └── secondary.js
+```
+
+- `public/assets`: Contains logos and ministry-related imagery.
+- `public/css`: Contains the responsive design styles.
+- `public/js/data.js`: Combines question banks into the app data.
+- `public/js/app.js`: Handles global navigation and page rendering.
+- `public/js/quiz.js`: Handles quiz mechanics, shuffling, and scoring.
 
 ## Local Development
 
