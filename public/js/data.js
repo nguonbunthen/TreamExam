@@ -19,6 +19,7 @@ const examData = [
       // ផ្គុំសំណួរពីគ្រប់ផ្នែកចូលគ្នាដោយស្វ័យប្រវត្តិ
       ...eduCultureQuestions,
       ...eduAseanQuestions,
+      ...eduHistoryQuestions,
       ...eduLanguageQuestions,
       ...eduFrenchQuestions,
       ...eduPrimaryKhmerQuestions,
