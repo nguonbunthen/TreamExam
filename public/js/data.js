@@ -17,6 +17,9 @@ const examData = [
     questions: [
       // ផ្គុំសំណួរពីគ្រប់ផ្នែកចូលគ្នាដោយស្វ័យប្រវត្តិ
       ...eduPublicServiceQuestions,
+      ...eduTeacherEthicsQuestions,
+      ...eduGovPolicyQuestions,
+      ...eduPublicAdminQuestions,
       ...eduCultureQuestions,
       ...eduAseanQuestions,
       ...eduHistoryQuestions,
