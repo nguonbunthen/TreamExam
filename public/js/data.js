@@ -20,6 +20,7 @@ const examData = [
       ...eduTeacherEthicsQuestions,
       ...eduGovPolicyQuestions,
       ...eduPublicAdminQuestions,
+      ...eduCivicsQuestions,
       ...eduCultureQuestions,
       ...eduAseanQuestions,
       ...eduHistoryQuestions,
